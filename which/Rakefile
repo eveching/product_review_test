@@ -1,0 +1,14 @@
+require 'rubygems'
+require 'cucumber/rake/task'
+require 'rspec/core/rake_task'
+
+# ==============================================
+# Cucumber
+# ==============================================
+
+desc 'Run all working cucumber tests and generate a cucumber report with test results'
+Cucumber::Rake::Task.new(:cucumber) do |task|
+  task.cucumber_opts = ['-f pretty -f html -o report.html', 'features/product_landing_page.feature']
+end
+
+task :default => [:cucumber]
